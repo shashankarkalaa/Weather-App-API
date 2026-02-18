@@ -5,96 +5,100 @@
 }
 
 body {
-  background: #e0e5ec;
-  font-family: "Poppins", "Inter", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Poppins", "Inter", sans-serif;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5, #4ade80);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* Animated Background */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Card */
 .card {
   width: 90%;
   max-width: 470px;
-  background: #e0e5ec;
-  border-radius: 30px;
   padding: 40px 35px;
+  border-radius: 25px;
   text-align: center;
-  box-shadow: 
-    10px 10px 25px #a3b1c6,
-    -10px -10px 25px #ffffff;
-  transition: 0.3s ease;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
 }
 
 /* Search */
 .search {
-  width: 100%;
   display: flex;
-  gap: 15px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .search input {
   flex: 1;
   height: 55px;
-  border-radius: 15px;
+  border-radius: 12px;
   border: none;
-  padding: 0 20px;
+  padding: 0 18px;
   font-size: 16px;
-  background: #e0e5ec;
-  box-shadow: 
-    inset 6px 6px 10px #a3b1c6,
-    inset -6px -6px 10px #ffffff;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
   outline: none;
-  transition: 0.3s;
 }
 
-.search input:focus {
-  box-shadow: 
-    inset 3px 3px 6px #a3b1c6,
-    inset -3px -3px 6px #ffffff;
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .search button {
   width: 55px;
   height: 55px;
-  border-radius: 15px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  background: #e0e5ec;
-  box-shadow: 
-    6px 6px 10px #a3b1c6,
-    -6px -6px 10px #ffffff;
-  transition: 0.2s;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
 }
 
-.search button:active {
-  box-shadow: 
-    inset 4px 4px 8px #a3b1c6,
-    inset -4px -4px 8px #ffffff;
+.search button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(255, 154, 158, 0.6);
 }
 
 .search button img {
   width: 18px;
+  filter: brightness(0);
 }
 
 /* Weather Icon */
 .weather-icon {
-  width: 140px;
-  margin: 30px 0;
+  width: 150px;
+  margin: 25px 0;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
 }
 
 /* Temperature */
 .weather h1 {
-  font-size: 60px;
-  font-weight: 600;
-  color: #2d3748;
+  font-size: 64px;
+  font-weight: 700;
 }
 
 .weather h2 {
   font-size: 28px;
   font-weight: 400;
-  color: #4a5568;
+  opacity: 0.9;
   margin-top: -5px;
 }
 
@@ -102,7 +106,7 @@ body {
 .details {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
 .col {
@@ -113,19 +117,19 @@ body {
 
 .col img {
   width: 30px;
+  filter: brightness(0) invert(1);
 }
 
 .humidity,
 .wind {
   font-size: 18px;
   font-weight: 500;
-  color: #2d3748;
 }
 
 .error {
   margin-top: 15px;
   font-size: 14px;
-  color: #e53e3e;
+  color: #ffe4e6;
   display: none;
 }
 
@@ -137,7 +141,6 @@ body {
 @media (max-width: 600px) {
   .card {
     padding: 25px 20px;
-    border-radius: 25px;
   }
 
   .weather h1 {
